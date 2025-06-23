@@ -1,0 +1,149 @@
+# version: "3.8"
+# services:
+#   backend:
+#     build: .
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - ./:/app  # Mount current directory
+#     working_dir: /app
+#     command: sh -c "npm install && node server.js"
+
+#   chrome-extension:
+#     image: browserless/chrome
+#     ports:
+#       - "3001:3000"
+#     environment:
+#       - DEFAULT_VIEWPORT_WIDTH=1200
+#       - DEFAULT_VIEWPORT_HEIGHT=800
+#       - CONNECTION_TIMEOUT=600000
+#     volumes:
+#       - ./:/usr/src/app
+#     restart: unless-stopped
+
+
+
+# version: "3.8"
+# services:
+#   backend:
+#     build: .
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - ./:/app
+#       - /app/node_modules  # Prevent host node_modules from overwriting container's
+#     working_dir: /app
+#     environment:
+#       - NODE_ENV=development
+#     restart: unless-stopped
+
+#   # Remove the chrome-extension service for now as it's not needed for backend
+
+
+
+# version: "3.8"
+# services:
+#   backend:
+#     build: .
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - ./:/app
+#       - /app/node_modules
+#     working_dir: /app
+#     environment:
+#       - NODE_ENV=development
+#     restart: unless-stopped
+
+#   frontend:
+#     image: nginx:alpine
+#     ports:
+#       - "8080:80"
+#     volumes:
+#       - ./dashboard:/usr/share/nginx/html
+#     depends_on:
+#       - backend
+
+
+
+# version: "3.8"
+# services:
+#   backend:
+#     build: ./backend
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - ./backend:/app
+#       - /app/node_modules
+#     environment:
+#       - NODE_ENV=development
+#     restart: unless-stopped
+
+#   frontend:
+#   image: nginx:alpine
+#   ports:
+#     - "80:80"
+#   volumes:
+#     - ./dashboard:/usr/share/nginx/html
+#     - ./dashboard/dashboard.html:/usr/share/nginx/html/index.html
+#   depends_on:
+#     - backend
+
+
+# version: "3.8"
+
+# services:
+#   backend:
+#     build: 
+#       context: ./backend
+#       dockerfile: Dockerfile
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - ./backend:/app
+#       - /app/node_modules
+#     working_dir: /app
+#     environment:
+#       - NODE_ENV=development
+#     restart: unless-stopped
+
+#   frontend:
+#     image: nginx:alpine
+#     ports:
+#       - "80:80"
+#     volumes:
+#       - ./dashboard:/usr/share/nginx/html
+#       - ./dashboard/dashboard.html:/usr/share/nginx/html/index.html
+#     depends_on:
+#       - backend
+#     restart: unless-stopped
+
+
+
+
+version: "3.8"
+
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./dashboard:/usr/share/nginx/html
+    depends_on:
+      - backend
+    restart: unless-stopped

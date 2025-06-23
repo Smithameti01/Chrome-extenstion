@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!-- In dashboard.html -->
+<!-- Update your dashboard.html head section -->
+<head>
+  <title>Productivity Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <!-- Use this simple Chart.js import without integrity check -->
+  <script src="chart.umd.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Productivity Dashboard</h1>
+    
+    <div class="chart-container">
+      <canvas id="timeChart"></canvas>
+    </div>
+    
+    <div class="chart-container">
+      <canvas id="dailyChart"></canvas>
+    </div>
+    
+    <div id="domain-list">
+      <h2>Top Websites</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Website</th>
+            <th>Time</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody id="domain-table-body">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>

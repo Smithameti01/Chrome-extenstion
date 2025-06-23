@@ -1,0 +1,90 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2 {
+    color: #2c3e50;
+  }
+  
+  .chart-container {
+    margin: 30px 0;
+    position: relative;
+    height: 400px;
+    width: 100%;
+  }
+  
+  #domain-list {
+    margin-top: 40px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .productive {
+    color: #2ecc71;
+    font-weight: bold;
+  }
+  
+  .unproductive {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
+  .neutral {
+    color: #95a5a6;
+    font-weight: bold;
+  }
+
+  .chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    min-height: 400px; /* Ensure minimum height */
+    margin: 30px 0;
+}
+
+/* Add this to ensure chart canvases take full container space */
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.error-message {
+    color: #e74c3c;
+    background-color: #fdecea;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 4px solid #e74c3c;
+}

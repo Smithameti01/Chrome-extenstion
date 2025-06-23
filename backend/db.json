@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "userId": "default",
+      "timeData": {
+        "2025-06-16": {
+          "productive": 7200,
+          "unproductive": 1800,
+          "neutral": 3600,
+          "domains": {
+            "github.com": {
+              "time": 3600,
+              "productive": true
+            },
+            "youtube.com": {
+              "time": 1800,
+              "productive": false
+            },
+            "example.com": {
+              "time": 900,
+              "productive": null
+            }
+          }
+        }
+      }
+    }
+  ]
+}
